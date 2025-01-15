@@ -1,0 +1,7 @@
+<span [class.important-task]="checkForImportance()">{{ todo }}</span> 
+<button 
+    style="margin-left:3rem" 
+    (click) = "remove.emit()"
+>
+    Remove todo
+</button>
