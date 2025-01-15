@@ -8,9 +8,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class TodoEntryComponent {
   @Input() todo:string = "Todo entry";
-  @Output() remove = new EventEmitter();
-
-  checkForImportance(){
-    return this.todo.includes('important');
-  }
+  @Input() isImportant: boolean = false;
+  @Output() remove = new EventEmitter();  
 }

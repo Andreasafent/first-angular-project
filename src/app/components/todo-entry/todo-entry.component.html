@@ -1,4 +1,4 @@
-<span [class.important-task]="checkForImportance()">{{ todo }}</span> 
+<span [class.important-task]="isImportant">{{ todo }}</span> 
 <button 
     style="margin-left:3rem" 
     (click) = "remove.emit()"

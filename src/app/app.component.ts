@@ -41,6 +41,10 @@ export class AppComponent {
     this.editTodoIndex = -1;
   }
 
+  checkForImportance(todo: string){
+    return todo.includes('important');
+  }
+
   trackByIndex(index: number, todo:string){
     return index;
   }

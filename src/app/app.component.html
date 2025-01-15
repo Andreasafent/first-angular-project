@@ -11,6 +11,7 @@
         <li *ngFor="let todo of todos; let i = index; trackBy: trackByIndex">
           <app-todo-entry 
             [todo]="todo"
+            [isImportant]="checkForImportance(todo)"
             (remove)="removeTodo(i)"
           />
           <!-- <span>{{ todo }}</span> 
