@@ -9,7 +9,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgIf, FormsModule, NgFor, TodoEntryComponent, TodoAddComponent, HeaderComponent, FooterComponent],
+  imports: [RouterOutlet, FormsModule, HeaderComponent, FooterComponent], //NgIf, NgFor, TodoEntryComponent,TodoAddComponent,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -13,11 +13,12 @@
         <div class="col-12">
             <ul class="list-group">
                 <li class="list-group-item" 
-                    *ngFor="let todo of todos; let i = index; trackBy:trackByIndex"
+                    *ngFor="let todo of todos; trackBy:trackByIndex"
                 >
                     <app-todo-entry 
                         [todo]="todo"
-                        (remove) = "removeTodo(i)"
+                        (edit) = "editTodo($event)"
+                        (remove) = "removeTodo($event)"
                     >
                     </app-todo-entry>
                 </li>
