@@ -1,7 +1,18 @@
-<span [class.important-task]="isImportant">{{ todo }}</span> 
-<button 
-    style="margin-left:3rem" 
-    (click) = "remove.emit()"
->
-    Remove todo
-</button>
+
+<div class="row">
+    <div class="col-6">{{todo}}</div>
+    <div class="col-6 text-end">
+        <button 
+            class="btn btn-primary me-2"
+            (click) = "remove.emit()"
+            >
+            Edit
+        </button>
+        <button 
+            class="btn btn-danger"
+            (click) = "remove.emit()"
+            >
+            Remove
+        </button>
+    </div>       
+</div>

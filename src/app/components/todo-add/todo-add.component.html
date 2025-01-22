@@ -1,11 +1,24 @@
-<input 
-    (keyup.enter)="onAddTodo()"
-    [(ngModel)] = "newTodo"
-    type="text" 
-    placeholder="Write a todo" 
-    style="width:300px;"
-/>
-<button  
-    class="btn btn-primary"       
-    (click) = "addTodo.emit(newTodo)"
->Add todo</button>
+<div class="row align-items-center">
+    <div class="col-10">
+        <label for="todo-text" class="form-label">Todo text</label>
+        <input 
+            type="text" 
+            id="todo-text" 
+            class="form-control"
+            (keyup.enter)="onAddTodo()"
+            [(ngModel)] = "newTodo"
+            placeholder="Write a todo"
+        >
+        <div class="form-text">
+            Please describe your todo in 120 characters
+        </div>
+    </div>
+    <div class="col text-end">
+        <button  
+            class="btn btn-primary btn-block"       
+            (click) = "addTodo.emit(newTodo)"
+        >
+            Add todo
+        </button>
+    </div>
+</div>
