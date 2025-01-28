@@ -1,1 +1,59 @@
-<p>contact works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="mt-2 mb-3">Contact us</h1>
+            <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="name" 
+                        placeholder="name@example.com"
+                        name="name"
+                        ngModel
+                        required
+                    >
+                    <div class="text-danger" *ngIf="contactForm.submitted && contactForm.controls['name'].invalid">
+                        Please enter a name.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address <span class="text-danger">*</span></label>
+                    <input 
+                        type="email" 
+                        class="form-control" 
+                        id="email" 
+                        placeholder="name@example.com"
+                        name="email"
+                        ngModel
+                        required
+                        email
+                    >
+                    <div class="text-danger" *ngIf="contactForm.submitted && contactForm.controls['email'].invalid">
+                        Please enter a valid email.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="subject" class="form-label">Subject <span class="text-danger">*</span></label>
+                    <textarea 
+                        class="form-control" 
+                        id="subject" 
+                        rows="3"
+                        name="subject"
+                        ngModel
+                        required
+                    ></textarea>
+                    <div class="text-danger" *ngIf="contactForm.submitted && contactForm.controls['subject'].invalid">
+                        Please enter a valid subject.
+                    </div>
+                </div>              
+                <div class="text-end">
+                    <button class="btn btn-primary">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

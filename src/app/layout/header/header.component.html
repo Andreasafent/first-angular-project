@@ -12,7 +12,8 @@
                     <a class="nav-link" routerLink="/my-todos">My todos</a>
                     <a class="nav-link" routerLink="/about">About</a>
                     <a class="nav-link" routerLink="/contact">Contact</a>
-                  </nav>
+                    <span *ngIf="authService.user.name">Hello, {{authService.user.name}}</span>
+                </nav>
             </div>
         </div>
     </div>
