@@ -9,15 +9,9 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  constructor(private authService: AuthService){
+  constructor(){
 
   }
 
-  public toggleUsername(){
-    if(this.authService.user.name === "Andreas"){
-      this.authService.user.name = "Evikos";
-    }else{
-      this.authService.user.name = "Andreas";
-    }
-  }
+  
 }

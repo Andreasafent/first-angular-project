@@ -12,7 +12,9 @@
                     <a class="nav-link" routerLink="/my-todos">My todos</a>
                     <a class="nav-link" routerLink="/about">About</a>
                     <a class="nav-link" routerLink="/contact">Contact</a>
-                    <span *ngIf="authService.user.name">Hello, {{authService.user.name}}</span>
+                    <a *ngIf="!authService.user" class="nav-link" routerLink="/login">Login</a>
+                    <a *ngIf="authService.user" class="nav-link" (click)="authService.logout()">Logout</a>
+                    <span *ngIf="authService.user">Hello, {{authService.user.name}}</span>
                 </nav>
             </div>
         </div>

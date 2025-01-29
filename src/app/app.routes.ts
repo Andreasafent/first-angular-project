@@ -4,6 +4,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MyTodosComponent } from './pages/my-todos/my-todos.component';
 import { EditTodoComponent } from './pages/edit-todo/edit-todo.component';
+import { LoginComponent } from './pages/login/login.component';
 
 export const routes: Routes = [
     {
@@ -25,5 +26,9 @@ export const routes: Routes = [
     {
         path:"edit-todo/:id",
         component: EditTodoComponent
+    },
+    {
+        path:"login",
+        component: LoginComponent
     },
 ];

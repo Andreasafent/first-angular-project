@@ -10,7 +10,8 @@ import { NumberAbbreviatePipe } from '../../pipes/number-abbreviate.pipe';
   styleUrl: './todo-entry.component.scss'
 })
 export class TodoEntryComponent {
-  @Input() todo!:{id:number, name:string};
+  @Input() todo!:{id:number, title:string; completed?:boolean};
+
   @Output() remove = new EventEmitter();  
   @Output() edit = new EventEmitter();
 

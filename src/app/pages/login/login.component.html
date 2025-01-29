@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="mt-2 mb-3">Contact us</h1>
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+                
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email<span class="text-danger">*</span></label>
+                    <input 
+                        type="email" 
+                        class="form-control" 
+                        id="email" 
+                        placeholder="name@example.com"
+                        name="email"
+                        ngModel
+                        required
+                        email
+                    >
+                    <div class="text-danger" *ngIf="loginForm.submitted && loginForm.controls['email'].invalid">
+                        Please enter a valid email.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password<span class="text-danger">*</span></label>
+                    <input 
+                        type="password" 
+                        class="form-control" 
+                        id="password"
+                        name="password"
+                        ngModel
+                        required
+                    >
+                    <div class="text-danger" *ngIf="loginForm.submitted && loginForm.controls['password'].invalid">
+                        Please enter a password
+                    </div>
+                </div>              
+                <div class="text-end">
+                    <button  class="btn btn-primary" type="submit" [disabled]="loading">
+                        <span *ngIf="!loading">Submit</span>
+                        <span *ngIf="loading">Loading...</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

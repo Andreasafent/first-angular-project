@@ -1,6 +1,7 @@
 import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'app-edit-todo',
@@ -10,17 +11,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditTodoComponent implements OnInit {
 
-  todo!: {id:number, name:string};
+  todo!: {id:number, title:string; completed?:boolean};
 
-  constructor(private route: ActivatedRoute){
+  constructor(private route: ActivatedRoute, private todoService: TodoService){
 
   }
   ngOnInit(): void {
     const id = parseInt(this.route.snapshot.params['id']);
-    const todos = localStorage.getItem('todos');
-    if(todos){
-      const todoArray = JSON.parse(todos) as{id:number; name:string}[];
-      this.todo = todoArray.find(todo => todo.id ===id)!;
-    }
+
+    this.todoService.getTodo(id).subscribe(todo => {
+      this.todo = todo;
+    });
   }
 }

@@ -3,6 +3,7 @@ import { TodoAddComponent } from '../../components/todo-add/todo-add.component';
 import { TodoEntryComponent } from '../../components/todo-entry/todo-entry.component';
 import { NgFor } from '@angular/common';
 import { Router } from '@angular/router';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'app-my-todos',
@@ -17,17 +18,17 @@ import { Router } from '@angular/router';
 
 export class MyTodosComponent implements OnInit {
   
-  todos: {name: string, id:number}[]=[];
+  public todos: {title: string, id:number; completed?:boolean}[]=[];
 
-  constructor(private router: Router){
+  constructor(private router: Router, private todoService: TodoService){
 
   }
 
   ngOnInit(){
-    const todos = localStorage.getItem('todos');
-    if(todos){
-      this.todos = JSON.parse(todos) as {name:string, id:number }[];
-    }
+    this.todoService.getTodos()?.subscribe(todos => {
+      console.log(todos);
+      this.todos = todos;
+    });
   }
 
   addToTodoList(todo: string){
@@ -37,7 +38,7 @@ export class MyTodosComponent implements OnInit {
     }
 
     const newTodo = {
-      name: todo,
+      title: todo,
       id: Math.floor(Math.random()*100)
     }
 
@@ -60,7 +61,7 @@ export class MyTodosComponent implements OnInit {
     return todo.includes('important');
   }
 
-  trackByIndex(index: number, todo:{name:string, id:number}){
+  trackByIndex(index: number, todo:{title:string, id:number}){
     return todo.id;
   }
 }
